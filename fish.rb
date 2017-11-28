@@ -9,12 +9,12 @@ class Fish
     return @fish_name
   end
 
-  def kill_fish
-    @fish_status = false
-  end
-
   def get_fish_status
     return @fish_status
   end
+
+ def set_fish_status(boolean)
+   @fish_status = boolean
+ end
 
 end

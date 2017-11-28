@@ -15,7 +15,7 @@ class River
 
   def remove_fish
     eaten_fish = @fish_in_river.pop()
-    eaten_fish.kill_fish
+    eaten_fish.set_fish_status(false)
     return eaten_fish
   end
 
@@ -26,7 +26,10 @@ class River
   def number_of_living_fish
     count = 0
     for fish in @fish_in_river
-      count +=1 if fish.get_fish_status == false
+      # p fish
+      if fish.get_fish_status == true
+        count += 1
+      end
     end
     return count
   end

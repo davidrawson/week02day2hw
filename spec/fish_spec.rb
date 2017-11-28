@@ -3,6 +3,7 @@ require("minitest/rg")
 
 require_relative("../fish")
 require_relative("../river")
+require_relative("../bear") # don't think I need this
 
 class TestFish < MiniTest::Test
 
@@ -15,8 +16,8 @@ class TestFish < MiniTest::Test
     assert_equal("Gulp", @fish.get_name)
   end
 
-  def test_kill_fish
-    killed_fish = @river.remove_fish
-    assert_equal(false, killed_fish.get_fish_status)
+  def test_set_fish_status
+    @fish.set_fish_status(false)
+    assert_equal(false, @fish.get_fish_status)
   end
 end
