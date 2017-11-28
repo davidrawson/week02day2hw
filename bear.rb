@@ -10,5 +10,16 @@ class Bear
     return @name
   end
 
+  def take_fish(fish)
+    @bear_stomach.push(fish)
+  end
+
+  def stomach_count
+    return @bear_stomach.count
+  end
+
+  def regurgitate_fish
+    return @bear_stomach.pop
+  end
 
 end
