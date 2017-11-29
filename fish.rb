@@ -13,7 +13,7 @@ class Fish
     return @fish_status
   end
 
- def set_fish_status(boolean)
+ def set_fish_status(boolean) # false = dead; true = alive
    @fish_status = boolean
  end
 
