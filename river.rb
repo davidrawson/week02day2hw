@@ -14,7 +14,7 @@ class River
   end
 
   def remove_fish
-    eaten_fish = @fish_in_river.pop()
+    eaten_fish = @fish_in_river.pop() 
     eaten_fish.set_fish_status(false)
     return eaten_fish
   end

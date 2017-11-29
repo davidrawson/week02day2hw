@@ -11,7 +11,7 @@ class Bear
   end
 
   def take_fish(fish)
-    @bear_stomach.push(fish)
+    @bear_stomach.push(fish) if !fish.nil? # nice check to find if the river has fish
   end
 
   def stomach_count

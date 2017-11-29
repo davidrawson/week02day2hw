@@ -11,8 +11,8 @@ class TestRiver < MiniTest::Test
   def setup
     @river = River.new("Yukon")
     @fish = Fish.new("Bubbles")
-    @fish2 = Fish.new("Bubbles")
-    @fish3 = Fish.new("Bubbles")
+    @fish2 = Fish.new("Gulp")
+    @fish3 = Fish.new("Bait")
     @bear = Bear.new("Theodore")
   end
 
@@ -27,8 +27,8 @@ class TestRiver < MiniTest::Test
 
   def test_remove_fish
     @river.add_fish(@fish)
-    @river.add_fish(@fish)
-    @river.add_fish(@fish)
+    @river.add_fish(@fish2)
+    @river.add_fish(@fish3)
     @river.remove_fish
     @river.remove_fish
     assert_equal(1, @river.number_of_fish)
@@ -38,11 +38,10 @@ class TestRiver < MiniTest::Test
     @river.add_fish(@fish)
     @river.add_fish(@fish2)
     @river.add_fish(@fish3)
-    eaten_fish = @river.remove_fish # bear takes from river, killing fish
-    @bear.take_fish(eaten_fish)     # bear eats fish
-    thrown_up_fish = @bear.regurgitate_fish   # bear throws up fish
-    p thrown_up_fish
-    @river.add_fish(thrown_up_fish)           # into the river
+    # bear takes from river, killing fish  # bear eats fish
+    @bear.take_fish(@river.remove_fish)
+    # bear throws up fish   # into the river
+    @river.add_fish(@bear.regurgitate_fish)
     assert_equal(3, @river.number_of_fish)
     assert_equal(2, @river.number_of_living_fish)
   end

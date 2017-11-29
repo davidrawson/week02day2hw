@@ -18,6 +18,10 @@ class TestBear < MiniTest::Test
     assert_equal("Theodore", @bear.get_name)
   end
 
+  def test_bear_has_empty_stomach
+    assert_equal(0, @bear.stomach_count)
+  end
+
   def test_take_fish_from_river
     @river.add_fish(@fish)
     @river.add_fish(@fish)
@@ -32,8 +36,5 @@ class TestBear < MiniTest::Test
     @river.add_fish(@bear.regurgitate_fish)
     assert_equal(1, @river.number_of_fish)
   end
-
-
-
 
 end
